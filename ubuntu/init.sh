@@ -26,9 +26,10 @@ apt install docker-ce docker-ce-cli containerd.io
 # 配置docker镜像加速
 echo '{
   "registry-mirrors": [
-    "http://registry.docker-cn.com",
-    "http://docker.mirrors.ustc.edu.cn",
-    "http://hub-mirror.c.163.com"
+    "https://hub-mirror.c.163.com",
+    "https://docker.mirrors.ustc.edu.cn",
+    "https://mirror.ccs.tencentyun.com",
+    "https://reg-mirror.qiniu.com"
   ]
 }' >/etc/docker/daemon.json
 systemctl daemon-reload
