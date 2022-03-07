@@ -13,7 +13,7 @@ deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted 
 # 添加docker源
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+"deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list >/dev/null
 
 # 更新所有软件包
@@ -26,10 +26,10 @@ apt install docker-ce docker-ce-cli containerd.io
 # 配置docker镜像加速
 echo '{
   "registry-mirrors": [
+    "https://reg-mirror.qiniu.com",
     "https://hub-mirror.c.163.com",
     "https://docker.mirrors.ustc.edu.cn",
-    "https://mirror.ccs.tencentyun.com",
-    "https://reg-mirror.qiniu.com"
+    "https://mirror.ccs.tencentyun.com"
   ]
 }' >/etc/docker/daemon.json
 systemctl daemon-reload
